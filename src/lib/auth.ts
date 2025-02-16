@@ -23,7 +23,7 @@ export const authOptions: NextAuthOptions = {
 
         try {
           await connectToDatabase();
-          const user = await User.find({ email: credentials.email });
+          const user = await User.findOne({ email: credentials.email });
           if (!user) {
             throw new Error("User not found");
           }
